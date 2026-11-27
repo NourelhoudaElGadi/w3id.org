@@ -1,17 +1,23 @@
 Options +FollowSymLinks
 RewriteEngine on
 
+# Page d'accueil
 RewriteRule ^$ https://nourelhoudaelgadi.github.io/UrbanMobility-Ontology/ [R=303,L]
 
+# Logiciel qui demande du Turtle -> fichier .ttl
 RewriteCond %{HTTP_ACCEPT} text/turtle [OR]
 RewriteCond %{HTTP_ACCEPT} application/x-turtle
 RewriteRule ^(drt|gtfs|infrastructure|event|drt-rules)(/[0-9.]+)?/?$ https://nourelhoudaelgadi.github.io/UrbanMobility-Ontology/ontology/$1.ttl [R=303,L]
 
+# Logiciel qui demande du RDF/XML (Protégé) -> fichier .rdf
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml [OR]
 RewriteCond %{HTTP_ACCEPT} application/owl\+xml [OR]
 RewriteCond %{HTTP_ACCEPT} application/xml
 RewriteRule ^(drt|gtfs|infrastructure|event|drt-rules)(/[0-9.]+)?/?$ https://nourelhoudaelgadi.github.io/UrbanMobility-Ontology/ontology/$1.rdf [R=303,L]
 
+# Extension écrite dans l'adresse (drt.ttl, drt.rdf...)
 RewriteRule ^(drt|gtfs|infrastructure|event|drt-rules)\.(ttl|rdf)$ https://nourelhoudaelgadi.github.io/UrbanMobility-Ontology/ontology/$1.$2 [R=303,L]
 
+# Navigateur -> page de documentation
 RewriteRule ^drt-rules(/[0-9.]+)?/?$ https://nourelhoudaelgadi.github.io/UrbanMobility-Ontology/rules.html [R=303,L]
+RewriteRule ^(drt|gtfs|infrastructure|event)(/[0-9.]+)?/?$ https://nourelhoudaelgadi.github.io/UrbanMobility-Ontology/$1.html [R=303,L]
