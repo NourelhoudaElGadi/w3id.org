@@ -15,4 +15,3 @@ RewriteRule ^(drt|gtfs|infrastructure|event|drt-rules)(/[0-9.]+)?/?$ https://nou
 RewriteRule ^(drt|gtfs|infrastructure|event|drt-rules)\.(ttl|rdf)$ https://nourelhoudaelgadi.github.io/UrbanMobility-Ontology/ontology/$1.$2 [R=303,L]
 
 RewriteRule ^drt-rules(/[0-9.]+)?/?$ https://nourelhoudaelgadi.github.io/UrbanMobility-Ontology/rules.html [R=303,L]
-RewriteRule ^(drt|gtfs|infrastructure|event)(/[0-9.]+)?/?$ https://nourelhoudaelgadi.github.io/UrbanMobility-Ontology/$1.html [R=303,L]
